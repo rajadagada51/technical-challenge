@@ -2,15 +2,15 @@
 
 #### It dynamically fetch the Azure instance metadata JSON and prompt us to enter a key to search for within the data.
 
-1. The find_value function which recursively searches for a key within a nested JSON object and returns the corresponding value.
-2. The url variable represents the Azure instance metadata URL.
-3. The headers variable contains the required headers, specifically the Metadata: true header to indicate that the request is for metadata.
-4. The code makes a GET request to the metadata URL using requests.get and passing the headers.
-5. The response is then parsed as JSON using response.json() to obtain the JSON object.
-6. The metadata information is printed using print json.dumps(object_data, indent=4) to display the JSON data with proper indentation.
-7. The code prompts the user to enter a key to search for within the JSON data.
-8. The find_value function is called with the JSON object and the entered key to retrieve the corresponding value.
-9. The value for the key is printed using print "The value for key '{0}' is: {1}".format(key, value).
+1. find_value function recursively searches for a key within a nested JSON object and returns the corresponding value.
+2. url variable represents the Azure instance metadata URL.
+3. headers variable contains the required headers, specifically the Metadata: true header to indicate that the request is for metadata.
+4. code makes a GET request to the metadata URL using requests.get and passing the headers.
+5. response is then parsed as JSON using response.json() to obtain the JSON object.
+6. metadata information is printed using print json.dumps(object_data, indent=4) to display the JSON data with proper indentation.
+7. code prompts the user to enter a key to search for within the JSON data.
+8. find_value function is called with the JSON object and the entered key to retrieve the corresponding value.
+9. value for the key is printed using print "The value for key '{0}' is: {1}".format(key, value).
 10. Error handling is implemented using try-except blocks:
 11. If a requests.RequestException occurs during the request, an error message is printed.
 12. If a ValueError occurs while parsing the JSON data, an error message is printed.
