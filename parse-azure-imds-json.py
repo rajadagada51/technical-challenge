@@ -38,6 +38,4 @@ except requests.RequestException as e:
     print "Error occurred during the request:", str(e)
 except ValueError:
     print "Error occurred while parsing the JSON data."
-except Exception:
-    print "An error occurred."
 
