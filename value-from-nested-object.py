@@ -22,5 +22,5 @@ if len(sys.argv) >= 3:
     except (NameError, SyntaxError):
         print("Invalid object format.")
 else:
-    print("Usage: python script.py <object> <key>")
+    print("Usage: python value-from-nested-object.py <object> <key>")
 
