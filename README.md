@@ -1,5 +1,14 @@
 # technical-challenge -2
 
+## Prerequisites
+
+```
+We are using requests module to call the azure IMDS API, to get the JSON data and save it as object to parse.
+In Python, the requests module is not part of the standard library, so we need to install it separately. Use pip, the package installer for Python to install the requests module.
+
+pip install requests
+```
+
 #### It dynamically fetch the Azure instance metadata JSON and prompt us to enter a key to search for within the data.
 
 1. find_value function recursively searches for a key within a nested JSON object and returns the corresponding value.
