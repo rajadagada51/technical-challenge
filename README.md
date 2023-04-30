@@ -198,7 +198,7 @@ kubectl create namespace demo
 ```
 kubectl create serviceaccount demo-account -n demo
 ```
-Create the Role and assign that to service account using role binding
++ Create the Role and assign that to service account using role binding
 ```
 apiVersion: v1
 kind: Namespace
@@ -229,12 +229,43 @@ roleRef:
   name: demo-role
   apiGroup: rbac.authorization.k8s.io
 ```
-
++ Create the k8s deployment & service yaml files for the code deploy and access. There would be other objects like configmap, secrets, HPA , I am not considering them here.
++ The below k8s files I created already and placed in their code repo.
 ```
 kubectl apply -f ui-app-deployment.yaml
 kubectl apply -f ui-app-service.yaml
 kubectl apply -f mw-app-deployment.yaml
 kubectl apply -f mw-app-service.yaml
+```
++ create the ingress YAML file, I have alredy covered above to install the ingress controller
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /ui-app
+            pathType: Prefix
+            backend:
+              service:
+                name: react-service
+                port:
+                  number: 80
+          - path: /mw-app
+            pathType: Prefix
+            backend:
+              service:
+                name: node-service
+                port:
+                  number: 3000
+  ingressClassName: nginx
+status:
+  loadBalancer:
+    ingress:
+      - ip: <<IP address>>
 ```
 
 
