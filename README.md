@@ -268,7 +268,25 @@ status:
     ingress:
       - ip: <<IP address>>
 ```
++ Database creation in postgresql and insert data to retrive the same by application
+```
+CREATE DATABASE techc;
 
+\c techc;
+
+CREATE TABLE items (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  description TEXT
+);
+
+INSERT INTO items (name, description)
+VALUES
+  ('Big 1', 'Deloitte'),
+  ('Big 2', 'EY'),
+  ('Big 3', 'KPMG'),
+  ('Big 4', 'PwC');
+```
 
 ## Solution 2: Using Azyre App Servics. Given detailed design daigram about traffic flow and information abut PaaS components.
 
