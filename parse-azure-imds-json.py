@@ -2,12 +2,12 @@ import json
 import requests
 
 def find_value(obj, key):
-    if isinstance(obj, list):  # Handle arrays
+    if isinstance(obj, list):
         for item in obj:
             result = find_value(item, key)
             if result is not None:
                 return result
-    elif isinstance(obj, dict):  # Handle dictionaries
+    elif isinstance(obj, dict):
         if key in obj:
             return obj[key]
         for value in obj.values():
