@@ -1,4 +1,24 @@
-# snaplogic-helm-charts
+# technical-challenge - 1
+
+There are multiple approaches to design the infsrastructure for the 3-tier application components. Here I would like to present 2 approaches mainly using Azure PaaS services, we can also use IaaS(VM). As most of the applications are now moving towards microservice driven approach, so PaaS services like container orchestration AKS, App services would give  better results in terms of speed of deployment, execution and isolation.
+
+These 2 solutions I heavily deployed for most of the products.
+
+Here I am assuming the application is being hosted on single region, so I am not going to use either Traffic Manager or Front Door.
+
+#### Technology Stack
+```
+Front End     : ReactJS
+Middleware    : NodeJs
+Database      : Azure PostgreSQL
+```
+Solution 1: Using AKS. Given detailed steps about AKS, about networking NSG, UDR, Network Plugin, Ingress Controller, Firewall rules and RBAC. These are very importent to setup the AKS cluster
+
+I have created sample ReactJS and NodeJs code in the given repositories and also I have updated Dockerfile and K8s spec files to deploy them onto the Kuberenetes namespace. Also I have covered the terraform modules in this same branch.
+```
+https://github.com/rajadagada51/sample-react-app.git
+https://github.com/rajadagada51/sample-node-app.git
+```
 
 
 
@@ -150,8 +170,37 @@ Network Contributor
 Organisation generally defines a list of predefined UDRs upon requests for VNETs/Subnets, but AKS provisions its own. Its is very important to replicate organisation defined routes to the newly created AKS route table. It is to ensure egress traffic going through the predefined firewall deployed within a given subscription or region. 
 
 
-# AKS SETUP - Using Terraform
+### AKS SETUP - Using Terraform
 
-We are using the Terraform Enterprise(Self-hosted) to maintain the private registry modules, State and Sentinal policies. For this demo purpose, I am creating the storage account to maintain the state.
+We are using the Terraform Enterprise(Self-hosted) to maintain the private registry modules, State and Sentinal policies. For this demo purpose, I have followed the below approach.
 
-Serivice principal 
++ Service pricipal with contribuor level access to deploy the resources
++ Storage account to save/maintain the state.
++ I have created the terraform using modular approach.
++ I have not used '.tfvars' concept here, due to lack of time.
+Below are commands used
+```
+terraform validate
+terraform init -backend-config="<path>/backend.tfvsrs"
+terraform plan -out=dev.tfpnan
+terraform aply -out=dev.tfplan
+```
+
+
+
+
+
+
+
+```
+Azure PaaS Services:
+-------------------
+Azure Application Gateway
+Static Web Apps
+API Management services
+App Services
+Azure Database for PostgreSQL flexible servers
+KeyVault
+Storage
+Azure Redis
+```
