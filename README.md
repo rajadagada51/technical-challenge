@@ -189,9 +189,9 @@ terraform aply -out=dev.tfplan
 ```
 
 
-Solution 1: Using Azyre App Servics. Given detailed design daigram about traffic flow and information abut PaaS components.
+## Solution 2: Using Azyre App Servics. Given detailed design daigram about traffic flow and information abut PaaS components.
 
-
+![image](https://user-images.githubusercontent.com/97170585/235370142-9f23c93b-8b08-4651-ad8f-2cb8cfb1de0c.png)
 
 ```
 Azure PaaS Services:
