@@ -12,7 +12,6 @@ Front End     : ReactJS
 Middleware    : NodeJs
 Database      : Azure PostgreSQL
 ```
-Solution 1: Using AKS. Given detailed steps about AKS, about networking NSG, UDR, Network Plugin, Ingress Controller, Firewall rules and RBAC. These are very importent to setup the AKS cluster
 
 I have created sample ReactJS and NodeJs code in the given repositories and also I have updated Dockerfile and K8s spec files to deploy them onto the Kuberenetes namespace. Also I have covered the terraform modules in this same branch.
 ```
@@ -20,6 +19,9 @@ https://github.com/rajadagada51/sample-react-app.git
 https://github.com/rajadagada51/sample-node-app.git
 ```
 
+### Solution 1: Using AKS. Given detailed steps about AKS, NSG rules, UDR, Network Plugin, Ingress Controller, Firewall rules and RBAC. These are very importent to setup the AKS cluster
+
+![image](https://user-images.githubusercontent.com/97170585/235369860-534b6e6c-6caf-4e79-af41-04e6ebf746a3.png)
 
 
 ### Prerequisites
@@ -187,8 +189,7 @@ terraform aply -out=dev.tfplan
 ```
 
 
-
-
+Solution 1: Using Azyre App Servics. Given detailed design daigram about traffic flow and information abut PaaS components.
 
 
 
