@@ -188,6 +188,55 @@ terraform plan -out=dev.tfpnan
 terraform aply -out=dev.tfplan
 ```
 
+### AKS deployments.
+
++ Created namespace. Generally each environment will have its own namepsace.
+```
+kubectl create namespace demo
+```
++ Create the service account within the namespace
+```
+kubectl create serviceaccount demo-account -n demo
+```
+Create the Role and assign that to service account using role binding
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-role
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: demo-role
+  namespace: demo
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps", "secrets", "deployments"]
+    verbs: ["get", "list", "watch", "create", "update", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: demo-role-binding
+  namespace: demo
+subjects:
+  - kind: ServiceAccount
+    name: demo-account
+    namespace: demo
+roleRef:
+  kind: Role
+  name: demo-role
+  apiGroup: rbac.authorization.k8s.io
+```
+
+```
+kubectl apply -f ui-app-deployment.yaml
+kubectl apply -f ui-app-service.yaml
+kubectl apply -f mw-app-deployment.yaml
+kubectl apply -f mw-app-service.yaml
+```
+
 
 ## Solution 2: Using Azyre App Servics. Given detailed design daigram about traffic flow and information abut PaaS components.
 
