@@ -1,6 +1,7 @@
 # technical-challenge - 1
 
-There are multiple approaches to design the infsrastructure for the 3-tier application components. Here I would like to present 2 approaches mainly using Azure PaaS services, we can also use IaaS(VM). As most of the applications are now moving towards microservice driven approach, so PaaS services like container orchestration AKS, App services would give  better results in terms of speed of deployment, execution and isolation.
+There are multiple approaches to design the infsrastructure for the 3-tier application components. 
+Here I would like to present 2 approaches mainly using Azure PaaS services, we can also use IaaS(VM). As most of the applications are now moving towards microservice driven approach, so PaaS services like container orchestration AKS, App services would give  better results in terms of speed of deployment, execution and isolation.
 
 These 2 solutions I heavily deployed for most of the products.
 
