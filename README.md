@@ -247,18 +247,18 @@ spec:
   rules:
     - http:
         paths:
-          - path: /ui-app
+          - path: /ui
             pathType: Prefix
             backend:
               service:
-                name: react-service
+                name: ui-app-service
                 port:
                   number: 80
-          - path: /mw-app
+          - path: /mw
             pathType: Prefix
             backend:
               service:
-                name: node-service
+                name: mw-app-service
                 port:
                   number: 3000
   ingressClassName: nginx
