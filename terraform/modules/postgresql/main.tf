@@ -1,4 +1,4 @@
-resource "random_password" "root_auth" {
+resource "random_password" "pg_passwd" {
   length      = 20
   min_lower   = 5
   min_upper   = 5
@@ -13,9 +13,9 @@ resource "azurerm_postgresql_server" "postgres_server" {
   name                = "${var.product_name}-${var.environment}-${var.location}"
   location            = var.location
   resource_group_name = var.resource_group_name
-  sku_name            = var.sku_name
-  storage_mb          = var.storage_mb
-  version             = var.postgres_version
-  administrator_login = var.username
-  administrator_login_password = random_password.root_auth.result
+  sku_name            = var.pg_sku_name
+  storage_mb          = var.pg_storage_mb
+  version             = var.pg_version
+  administrator_login = var.pg_username
+  administrator_login_password = random_password.pg_passwd.result
 }
