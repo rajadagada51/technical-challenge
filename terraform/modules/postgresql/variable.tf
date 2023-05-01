@@ -2,12 +2,16 @@ variable "resource_group_name" {}
 
 variable "location" {}
 
-variable "product_name" {}
+variable "product_name" {
+  default = "tc"
+}
 
-variable "sku_name" {}
+variable "pg_sku_name" {
+  default = "B_Gen4_2"
+}
 
-variable "storage_mb" {}
+variable "pg_version" {
+  default = 11
+}
 
-variable "postgres_version" {}
-
-variable "username" {} 
+variable "pg_username" {} 
