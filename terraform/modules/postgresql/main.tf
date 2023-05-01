@@ -10,7 +10,7 @@ resource "random_password" "root_auth" {
 }
 
 resource "azurerm_postgresql_server" "postgres_server" {
-  name                = var.server_name
+  name                = "${var.product_name}-${var.environment}-{var.location}"
   location            = azurerm_resource_group.postgres_rg.location
   resource_group_name = azurerm_resource_group.postgres_rg.name
   sku_name            = var.sku_name
