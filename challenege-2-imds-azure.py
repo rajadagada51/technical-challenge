@@ -22,20 +22,15 @@ headers = {
 }
 try:
     response = requests.get(url,headers=headers)
-    object_data = response.json()  # Parse the JSON response
+    object_data = response.json()
 
-    # Print the metadata information
-    print "Metadata Information:"
     print json.dumps(object_data, indent=4)
+    key = raw_input("Search the key: ")
 
-    # Prompt for the key
-    key = raw_input("Enter the key to search for: ")
-
-    # Search for the key within the JSON data
     value = find_value(object_data, key)
     print "The value for key '{0}' is: {1}".format(key, value)
 except requests.RequestException as e:
-    print "Error occurred during the request:", str(e)
+    print "Error calling the request:", str(e)
 except ValueError:
-    print "Error occurred while parsing the JSON data."
+    print "Error parsing the JSON data."
 
