@@ -10,7 +10,6 @@ def get_value(obj, key):
     except (KeyError, TypeError):
         return None
 
-# Check if command-line arguments are provided
 if len(sys.argv) >= 3:
     object_str = sys.argv[1]
     key = sys.argv[2]
@@ -20,7 +19,7 @@ if len(sys.argv) >= 3:
         value = get_value(object, key)
         print(value)
     except (NameError, SyntaxError):
-        print("Invalid object format.")
+        print("Wrong object format.")
 else:
-    print("Usage: python value-from-nested-object.py <object> <key>")
+    print("Usage: python challenge-3-parse-nested-object.py <object> <key>")
 
